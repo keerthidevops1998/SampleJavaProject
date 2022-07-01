@@ -13,17 +13,26 @@ on:
   workflow_dispatch:
   
 jobs:
-  Install_Java:
+  Sample_CICD_Pipeline:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install java
-        run: sudo apt-get update -y && sudo apt install openjdk-11-jdk-headless -y
-      - name: Checking Java Version
-        run: sudo java -version
-      - name: Install Maven
-        run: sudo apt-get install maven -y
-      - name: Checking Maven Version
-        run: mvn --version
-      - name: create archive file
-        run: mvn package
+      - name: Setp 1 :Install java
+        run: | 
+          sudo apt-get update -y 
+          sudo apt install openjdk-11-jdk-headless -y
+      - name: Setp 2 :Checking Java Version
+        run: |
+          sudo java -version
+      - name: Setp 3 :Install Maven
+        run: |
+          sudo apt-get install maven -y
+      - name: Setp4 :Checking Maven Version
+        run: |
+          mvn --version
+      - name: Setp5 :create archive file
+        run: |
+          mvn package
+          mkdir dev && cp target/*.jar dev
+          
+  
