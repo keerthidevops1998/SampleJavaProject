@@ -33,6 +33,6 @@ jobs:
       - name: Setp5 :create archive file
         run: |
           mvn package
-          mkdir dev && cp target/*.jar dev
+          mkdir dev && cp target/*.war dev
           
   
